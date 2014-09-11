@@ -32,7 +32,8 @@ def crutem1(inp, dat, inv):
         data = ''.join(data)
         dat.write("{}{}TAVG{}\n".format(id, year, data))
     lat = float(d['Lat'])
-    lon = float(d['Long'])
+    # CRUTEM use the "positive is west" convention.
+    lon = -float(d['Long'])
     elev = float(d['Height'])
     name = d['Name']
     inv.write("{} {:8.4f} {:9.4f} {:6.1f} {:30.30s}\n".format(
