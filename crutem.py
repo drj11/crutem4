@@ -35,6 +35,10 @@ def crutem1(inp, dat, inv):
     # CRUTEM use the "positive is west" convention.
     lon = -float(d['Long'])
     elev = float(d['Height'])
+    if elev < -999.0:
+        # Some stations have an invalid elevation of -9999.0,
+        # which won't format in 6 digits.
+        elev = -999.0
     name = d['Name']
     inv.write("{} {:8.4f} {:9.4f} {:6.1f} {:30.30s}\n".format(
       id, lat, lon, elev, name))
