@@ -72,7 +72,7 @@ def main(argv=None):
         argv = sys.argv
 
     with open("crutem4.dat", 'w') as dat,\
-      open("crutem4.inv", 'w') as inv:
+      open("crutem4.inv", 'w', encoding="iso8859-1") as inv:
         crutem(dat, inv)
 
 if __name__ == '__main__':
